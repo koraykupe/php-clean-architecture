@@ -1,0 +1,25 @@
+{
+    "name": "koraykupe/php-clean-architecture",
+    "description": "An example structure to clean architecture in PHP.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Koray Kupe",
+            "email": "hello@koraykupe.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"": "planning/"},
+        "psr-4": {
+        }
+    },
+    "require": {
+        "doctrine/orm": "^2.6.2",
+        "symfony/yaml": "2.*"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "phpunit/phpunit": "6.4",
+        "mockery/mockery": "^1.2"
+    },
+}
