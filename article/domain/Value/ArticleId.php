@@ -27,4 +27,12 @@ class ArticleId
     {
         return new static($id);
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->id;
+    }
 }
