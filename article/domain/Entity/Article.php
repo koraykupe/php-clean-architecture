@@ -2,6 +2,7 @@
 
 class Article
 {
+    use Validatable;
     private $title;
     private $content;
     private $status;
@@ -12,6 +13,8 @@ class Article
     {
         $this->setTitle($title);
         $this->setContent($content);
+        $this->assertMinLength($title, 5);
+        $this->assertMinLength($content, 30);
         $this->status = Status::draft();
         $this->setCreatedAt($createdAt ?? new DateTimeImmutable());
     }
