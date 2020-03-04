@@ -11,12 +11,22 @@ class Article
 
     public function __construct($title, $content, $createdAt = null)
     {
+        $this->validate();
         $this->setTitle($title);
         $this->setContent($content);
-        $this->assertMinLength($title, 5);
-        $this->assertMinLength($content, 30);
         $this->status = Status::draft();
         $this->setCreatedAt($createdAt ?? new DateTimeImmutable());
+    }
+
+    /**
+     * Validation of fields
+     * @todo: Move validation to a validation handler and create an ArticleValidation class
+     */
+    private function validate(): void
+    {
+        $this->assertMinLength($this->title, 5);
+        $this->assertMaxLength($this->title, 255);
+        $this->assertMinLength($this->content, 30);
     }
 
     /**

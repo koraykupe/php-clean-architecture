@@ -17,4 +17,14 @@ trait Validatable
             ));
         }
     }
+
+    protected function assertMaxLength($string, $maxLength)
+    {
+        if (strlen($string) > $maxLength) {
+            throw new InvalidArgumentException(sprintf(
+                'String must be less than %d characters',
+                $maxLength
+            ));
+        }
+    }
 }
