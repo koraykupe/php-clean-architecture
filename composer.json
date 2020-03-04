@@ -9,7 +9,7 @@
         }
     ],
     "autoload": {
-        "psr-0": {"": "planning/"},
+        "psr-0": {"": "article/"},
         "psr-4": {
         }
     },
