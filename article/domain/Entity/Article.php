@@ -4,11 +4,65 @@ class Article
 {
     private $title;
     private $content;
+    private $status;
+    private $createdAt;
+    private $publishedAt;
 
-    public function __construct($title, $content)
+    public function __construct($title, $content, $createdAt = null)
     {
         $this->setTitle($title);
         $this->setContent($content);
+        $this->status = Status::draft();
+        $this->setCreatedAt($createdAt ?? new DateTimeImmutable());
+    }
+
+    /**
+     * @return Status
+     */
+    public function getStatus(): Status
+    {
+        return $this->status;
+    }
+    /**
+     * @param Status $status
+     */
+    public function setStatus(Status $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function publish(): void
+    {
+        $this->setStatus(Status::published());
+        $this->setPublishedAt(new DateTimeImmutable());
+    }
+
+    /**
+     * @param DateTimeImmutable $publishedDate
+     */
+    private function setPublishedAt(DateTimeImmutable $publishedDate): void
+    {
+        // @todo: Date validation
+        $this->publishedAt = $publishedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdDate
+     */
+    public function setCreatedAt(DateTimeImmutable $createdDate): void
+    {
+        $this->createdAt = $createdDate;
     }
 
     /**
