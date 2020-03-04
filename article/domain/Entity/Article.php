@@ -3,6 +3,7 @@
 class Article
 {
     use Validatable;
+    private $id;
     private $title;
     private $content;
     private $status;
@@ -51,6 +52,9 @@ class Article
     {
         $this->setStatus(Status::published());
         $this->setPublishedAt(new DateTimeImmutable());
+//        DomainEventPublisher::instance()->publish(
+//            new ArticlePublished($this->id)
+//        );
     }
 
     /**
@@ -81,7 +85,7 @@ class Article
     /**
      * @return mixed
      */
-    private function getTitle()
+    public function getTitle()
     {
         return $this->title;
     }
@@ -100,7 +104,7 @@ class Article
     /**
      * @return mixed
      */
-    private function getContent()
+    public function getContent()
     {
         return $this->content;
     }
@@ -114,5 +118,21 @@ class Article
             throw new RuntimeException('Content cannot be empty');
         }
         $this->content = $content;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 }

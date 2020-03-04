@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Purpose of this service is transforming add article
+ * commands into domain layer in a meaningful way.
+ */
 
 class AddArticleService
 {
