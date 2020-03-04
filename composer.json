@@ -15,9 +15,9 @@
     },
     "require": {
         "doctrine/orm": "^2.6.2",
-        "symfony/yaml": "2.*",
-        "php-di/php-di": "^6.0",
-        "ramsey/uuid": "^3.9"
+        "ramsey/uuid": "^3.9",
+        "symfony/yaml": "^5.0",
+        "symfony/dependency-injection": "^5.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
