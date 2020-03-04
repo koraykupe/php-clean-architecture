@@ -1,6 +1,6 @@
 <?php
 
-class Validatable
+trait Validatable
 {
     protected function assertNotEmpty($data): void
     {
